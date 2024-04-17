@@ -23,8 +23,8 @@ const CharacterList = () => {
     // };
 
     const deleteCharacter = id =>{
-        fetch (`https://rickandmortyapi.com/api/character${character.id}`, {
-            method:'delete'
+        fetch (`https://rickandmortyapi.com/api/character${characters.id}`, {
+            method:'Delete'
         }).then (() =>{
             setCharacters(characters.filter(character => character.id !== id));
         });
@@ -52,8 +52,10 @@ const CharacterList = () => {
 
                      <img src={character.image} alt={character.name} />
                      
-                     <Link to={`/character/${character.id}`}>{character.name}</Link>
-                     <button onClick={() => deleteCharacter(character.id)}>delete</button>
+                     <Link to={`/character/${character.id}`}>{character.name}</Link><br />
+                     <button onClick={() => deleteCharacter (character.id)} className='bg-red-500 border rounded-md w-full'>
+                        Delete
+                        </button>
 
                 </div>
             ))}
